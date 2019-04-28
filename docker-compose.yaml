@@ -1,0 +1,16 @@
+version: "3"
+services:
+  proxy:
+    build: ./app
+    ports:
+    - "8081:8081"
+    links:
+    - "server"
+
+  server:
+    build: ./envoy
+    ports:
+    - "8080:8080"
+    volumes:
+    - ./sandbox-server:/go/src/sandbox-server
+    container_name: "server"
