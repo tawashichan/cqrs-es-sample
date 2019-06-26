@@ -3,7 +3,7 @@ package server
 import (
 	"context"
 	"cqrs-es/app/grpc/protobuf"
-	"cqrs-es/domain/model/userModel"
+	"cqrs-es/domain/event/userEvent"
 	"cqrs-es/domain/service"
 )
 
@@ -18,7 +18,7 @@ func NewUserServer(userService service.UserService) UserServer {
 }
 
 func (server *UserServer) UpdateEmail(ctx context.Context, req *user.UpdateUserEvent) (*user.ReturnOK, error) {
-	event := &userModel.UpdateEmail{
+	event := &userEvent.UpdateEmail{
 		Email: req.Email,
 	}
 	if err := server.userService.UpdateUser(event); err != nil {

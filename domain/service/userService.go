@@ -1,6 +1,7 @@
 package service
 
 import (
+	"cqrs-es/domain/event/userEvent"
 	"cqrs-es/domain/model/userModel"
 )
 
@@ -14,6 +15,6 @@ func NewUserService(userRepository userModel.IUserEventRepository) UserService {
 	}
 }
 
-func (s UserService) UpdateUser(e *userModel.UpdateEmail) error {
+func (s UserService) UpdateUser(e *userEvent.UpdateEmail) error {
 	return s.userEventRepository.UpdateUser(e)
 }
