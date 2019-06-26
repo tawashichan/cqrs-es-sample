@@ -5,8 +5,8 @@ version: 2
 jobs:
   build:
     #machine: true
-    #docker:
-    #  - image: circleci/golang:1.11
+    docker:
+      - image: circleci/golang:1.11
     #ocker:
      # - image: docker
       # Specify service dependencies here if necessary
