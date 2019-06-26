@@ -4,10 +4,11 @@
 version: 2
 jobs:
   build:
-    machine: true
+    #machine: true
     #docker:
     #  - image: circleci/golang:1.11
-
+    #ocker:
+     # - image: docker
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -17,9 +18,10 @@ jobs:
     #### expecting it in the form of
     ####   /go/src/github.com/circleci/go-tool
     ####   /go/src/bitbucket.org/circleci/go-tool
-    working_directory: /go/src/github.com/circleci/cqrs-es
+    working_directory: /go/src/github.com/tawashi/cqrs-es
     steps:
       - checkout
       # specify any bash command here prefixed with `run: `
       #- run: go test
+      - setup_remote_docker
       - run: docker build -t cqrs-es-dev:latest .
